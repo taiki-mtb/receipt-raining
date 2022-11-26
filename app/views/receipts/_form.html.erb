@@ -1,0 +1,92 @@
+<%= form_with(model: receipt) do |form| %>
+  <% if receipt.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+
+      <ul>
+        <% receipt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pay_type, style: "display: block" %>
+    <%= form.number_field :pay_type %>
+  </div>
+
+  <div>
+    <%= form.label :subtotal, style: "display: block" %>
+    <%= form.number_field :subtotal %>
+  </div>
+
+  <div>
+    <%= form.label :total_quantity, style: "display: block" %>
+    <%= form.number_field :total_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :total_amount, style: "display: block" %>
+    <%= form.number_field :total_amount %>
+  </div>
+
+  <div>
+    <%= form.label :tax_target_8%, style: "display: block" %>
+    <%= form.number_field :tax_target_8% %>
+  </div>
+
+  <div>
+    <%= form.label :tax_amount_8%, style: "display: block" %>
+    <%= form.text_field :tax_amount_8% %>
+  </div>
+
+  <div>
+    <%= form.label :tax_target_10%, style: "display: block" %>
+    <%= form.number_field :tax_target_10% %>
+  </div>
+
+  <div>
+    <%= form.label :tax_amount_10%, style: "display: block" %>
+    <%= form.text_field :tax_amount_10% %>
+  </div>
+
+  <div>
+    <%= form.label :total_discount_price, style: "display: block" %>
+    <%= form.number_field :total_discount_price %>
+  </div>
+
+  <div>
+    <%= form.label :credit_amount, style: "display: block" %>
+    <%= form.number_field :credit_amount %>
+  </div>
+
+  <div>
+    <%= form.label :change, style: "display: block" %>
+    <%= form.number_field :change %>
+  </div>
+
+  <div>
+    <%= form.label :point_target, style: "display: block" %>
+    <%= form.number_field :point_target %>
+  </div>
+
+  <div>
+    <%= form.label :thistime_point, style: "display: block" %>
+    <%= form.number_field :thistime_point %>
+  </div>
+
+  <div>
+    <%= form.label :use_point, style: "display: block" %>
+    <%= form.number_field :use_point %>
+  </div>
+
+  <div>
+    <%= form.label :memo, style: "display: block" %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
