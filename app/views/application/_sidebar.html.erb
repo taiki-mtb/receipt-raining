@@ -1,0 +1,24 @@
+<div class="d-flex flex-column flex-shrink-0 py-3 px-3 bg-dark text-white vh-100">
+  <div class="d-flex align-items-center justify-content-center py-2">
+    <%= link_to "top", root_path, class: "text-white display-6 text-decoration-none" %>
+  </div>
+  <hr />
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <%= link_to "レシート", receipts_path, class: "my-1 nav-link text-white" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "店舗", stores_path, class: "my-1 nav-link text-white" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "スタッフ", staffs_path, class: "my-1 nav-link text-white" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "商品", products_path, class: "my-1 nav-link text-white" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "商品カテゴリー", product_categories_path, class: "my-1 nav-link text-white" %>
+    </li>
+  </ul>
+</div>
