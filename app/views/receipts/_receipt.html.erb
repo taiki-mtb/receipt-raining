@@ -1,77 +1,41 @@
-<div id="<%= dom_id receipt %>">
-  <p>
-    <strong>Pay type:</strong>
-    <%= receipt.pay_type %>
-  </p>
+<div class="row py-2 border-top">
 
-  <p>
-    <strong>Subtotal:</strong>
+  <div class="col-1 my-auto">
+    <%= receipt.created_at %>
+  </div>
+
+  <div class="col-1 my-auto">
     <%= receipt.subtotal %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Total quantity:</strong>
-    <%= receipt.total_quantity %>
-  </p>
-
-  <p>
-    <strong>Total amount:</strong>
-    <%= receipt.total_amount %>
-  </p>
-
-  <p>
-    <strong>Tax target 8%:</strong>
-    <%= receipt.tax_target_8% %>
-  </p>
-
-  <p>
-    <strong>Tax amount 8%:</strong>
-    <%= receipt.tax_amount_8% %>
-  </p>
-
-  <p>
-    <strong>Tax target 10%:</strong>
-    <%= receipt.tax_target_10% %>
-  </p>
-
-  <p>
-    <strong>Tax amount 10%:</strong>
-    <%= receipt.tax_amount_10% %>
-  </p>
-
-  <p>
-    <strong>Total discount price:</strong>
+  <div class="col-1 my-auto">
     <%= receipt.total_discount_price %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Credit amount:</strong>
-    <%= receipt.credit_amount %>
-  </p>
+  <div class="col-1 my-auto">
+    <%= receipt.total_amount %>
+  </div>
 
-  <p>
-    <strong>Change:</strong>
+  <div class="col-1 my-auto">
+    <%= receipt.pay_type %>
+  </div>
+
+  <div class="col-1 my-auto">
+    <%= receipt.cash_amount %>
+  </div>
+
+  <div class="col-1 my-auto">
     <%= receipt.change %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Point target:</strong>
-    <%= receipt.point_target %>
-  </p>
+  <div class="col-1 my-auto">
+    <%= receipt.credit_amount %>
+  </div>
 
-  <p>
-    <strong>Thistime point:</strong>
-    <%= receipt.thistime_point %>
-  </p>
-
-  <p>
-    <strong>Use point:</strong>
-    <%= receipt.use_point %>
-  </p>
-
-  <p>
-    <strong>Memo:</strong>
-    <%= receipt.memo %>
-  </p>
-
+  <div class="col- my-auto">
+    <div class="d-flex justify-content-end">
+      <%= link_to "edit", edit_receipt_path(receipt), class: "btn btn-sm btn-outline-primary me-2" %>
+      <%= button_to "delete", receipt, method: :delete, class: "btn btn-sm btn-outline-danger" %>
+    </div>
+  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_26_134909) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_27_124049) do
   create_table "customers", force: :cascade do |t|
     t.integer "tcard_number"
     t.integer "point"
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_134909) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cash_amount"
     t.index ["customer_id"], name: "index_receipts_on_customer_id"
     t.index ["register_id"], name: "index_receipts_on_register_id"
     t.index ["staff_id"], name: "index_receipts_on_staff_id"

@@ -53,6 +53,6 @@ class ReceiptsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def receipt_params
-      params.require(:receipt).permit(:pay_type, :subtotal, :total_quantity, :total_amount, :tax_target_8%, :tax_amount_8%, :tax_target_10%, :tax_amount_10%, :total_discount_price, :credit_amount, :change, :point_target, :thistime_point, :use_point, :memo)
+      params.require(:receipt).permit(:pay_type, :subtotal, :total_quantity, :total_amount, :tax_target_8, :tax_amount_8, :tax_target_10, :tax_amount_10, :total_discount_price, :cash_amount, :credit_amount, :change, :point_target, :thistime_point, :use_point, :memo)
     end
 end
