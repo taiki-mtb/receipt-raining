@@ -1,27 +1,28 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= turbo_frame_tag product do %>
+  <%= bootstrap_form_with(model: product) do |form| %>
+    <div class="row py-2 border-top">
+      <div class="col-4">
+        <%= form.text_field :name,
+                            skip_label: true,
+                            label_as_placeholder: true,
+                            wrapper: false,
+                            control_class: "form-control form-control-sm"
+        %>
+      </div>
+      <div class="col-4">
+        <%= form.number_field :price,
+                            skip_label: true,
+                            label_as_placeholder: true,
+                            wrapper: false,
+                            control_class: "form-control form-control-sm"
+        %>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-end">
+          <%= form.primary class: "btn btn-primary btn-sm me-2" %>
+          <%= link_to "キャンセル", product, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

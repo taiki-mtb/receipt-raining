@@ -1,9 +1,9 @@
 <%= turbo_frame_tag staff do %>
   <%= bootstrap_form_with(model: staff) do |form| %>
     <div class="row py-2 border-top">
-    <div class="col-4 my-auto">
-      <%= staff.name %>
-    </div>
+      <div class="col-4 my-auto">
+        <%= staff.name %>
+      </div>
       <div class="col-4 offset-4">
         <div class="d-flex justify-content-end">
           <%= link_to "edit", edit_staff_path(staff), class: "btn btn-sm btn-outline-primary me-2" %>

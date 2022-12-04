@@ -1,12 +1,18 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-</div>
+<%= turbo_frame_tag product do %>
+  <%= bootstrap_form_with(model: product) do |form| %>
+    <div class="row py-2 border-top">
+      <div class="col-4 my-auto">
+        <%= product.name %>
+      </div>
+      <div class="col-4 my-auto">
+        <%= product.price %>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-end">
+          <%= link_to "edit", edit_product_path(product), class: "btn btn-sm btn-outline-primary me-2" %>
+          <%= link_to "delete", product, class: "btn btn-sm btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
