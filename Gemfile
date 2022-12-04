@@ -62,3 +62,7 @@ group :development do
 end
 
 gem "bootstrap_form"
+
+gem 'enum_help'
+
+gem 'rails-i18n'

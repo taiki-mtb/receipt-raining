@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<div class="card shadow mt-3">
+  <div class="card-header">
+    <%= icon_with_text("table", "商品カテゴリー一覧") %>
+  </div>
 
-<h1>Product categories</h1>
-
-<div id="product_categories">
-  <% @product_categories.each do |product_category| %>
-    <%= render product_category %>
-    <p>
-      <%= link_to "Show this product category", product_category %>
-    </p>
-  <% end %>
+  <div class="card-body mx-3">
+    <div class="row py-2">
+      <div class="col-4 offset-8 d-flex justify-content-end">
+        <%= link_to icon_with_text("plus-circle", "登録"),
+                    new_product_category_path,
+                    class: "btn btn-outline-primary",
+                    data: { turbo_frame: "new_product_category" }
+        %>
+      </div>
+    </div>
+    <%= turbo_frame_tag "new_product_category" %>
+    <div id="product_categories">
+      <%= render @product_categories %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New product category", new_product_category_path %>

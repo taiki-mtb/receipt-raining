@@ -1,32 +1,37 @@
-<%= form_with(model: product_category) do |form| %>
-  <% if product_category.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product_category.errors.count, "error") %> prohibited this product_category from being saved:</h2>
-
-      <ul>
-        <% product_category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= turbo_frame_tag product_category do %>
+  <%= bootstrap_form_with(model: product_category) do |form| %>
+    <div class="row py-2 border-top">
+      <div class="col-3">
+        <%= form.text_field :name,
+                            skip_label: true,
+                            label_as_placeholder: true,
+                            wrapper: false,
+                            control_class: "form-control form-control-sm"
+        %>
+      </div>
+      <div class="col-3">
+        <%= form.number_field :code,
+                            skip_label: true,
+                            label_as_placeholder: true,
+                            wrapper: false,
+                            control_class: "form-control form-control-sm"
+        %>
+      </div>
+      <div class="col-3">
+        <%= form.select :tax_type,
+                        ProductCategory.tax_types_i18n.keys.map  {|k| [ProductCategory.tax_types_i18n[k], k]},
+                        {skip_label: true,
+                        label_as_placeholder: true,
+                        wrapper: false},
+                        {class: "form-select-sm"}
+        %>
+      </div>
+      <div class="col-3">
+        <div class="d-flex justify-content-end">
+          <%= form.primary class: "btn btn-primary btn-sm me-2" %>
+          <%= link_to "キャンセル", product_category, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :code, style: "display: block" %>
-    <%= form.number_field :code %>
-  </div>
-
-  <div>
-    <%= form.label :tax_type, style: "display: block" %>
-    <%= form.number_field :tax_type %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

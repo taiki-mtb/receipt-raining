@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      staff: スタッフ
+      product: 商品
+      product_category: 商品カテゴリー
+    attributes:
+      staff:
+        name: 名前
+      product: 
+        name: 名前
+        price: 価格
+        product_category_id: 商品カテゴリー
+      product_category:
+        name: 名前
+        code: カテゴリーコード
+        tax_type: 消費税率タイプ
+  enums:
+    product_category:
+      tax_type:
+        tax_type_8: 消費税率8%
+        tax_type_10: 消費税率10%

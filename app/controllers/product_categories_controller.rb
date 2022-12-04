@@ -24,7 +24,7 @@ class ProductCategoriesController < ApplicationController
     @product_category = ProductCategory.new(product_category_params)
 
     if @product_category.save
-      redirect_to @product_category, notice: "Product category was successfully created."
+      flash.now.notice = "Product category was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ProductCategoriesController < ApplicationController
   # PATCH/PUT /product_categories/1
   def update
     if @product_category.update(product_category_params)
-      redirect_to @product_category, notice: "Product category was successfully updated."
+      flash.now.notice = "Product category was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +42,12 @@ class ProductCategoriesController < ApplicationController
   # DELETE /product_categories/1
   def destroy
     @product_category.destroy
-    redirect_to product_categories_url, notice: "Product category was successfully destroyed."
+    if @product_category.errors.present?
+      flash.now.alert = "Product category can't be deleated because of childs products"
+    else
+      render turbo_stream: turbo_stream.remove(@product_category)
+      flash.now.notice = "Product category was successfully destroyed."
+    end
   end
 
   private

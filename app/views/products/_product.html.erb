@@ -1,11 +1,17 @@
 <%= turbo_frame_tag product do %>
   <%= bootstrap_form_with(model: product) do |form| %>
     <div class="row py-2 border-top">
-      <div class="col-4 my-auto">
+      <div class="col-2 my-auto">
         <%= product.name %>
       </div>
-      <div class="col-4 my-auto">
+      <div class="col-2 my-auto">
         <%= product.price %>
+      </div>
+      <div class="col-2 my-auto">
+        <%= product.product_category_shown_value %>
+      </div>
+      <div class="col-2 my-auto">
+        <%= product.product_category_tax_type %>
       </div>
       <div class="col-4">
         <div class="d-flex justify-content-end">

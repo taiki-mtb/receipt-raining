@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      flash.now.notice = "Staff was successfully created."
+      flash.now.notice = "Product was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -53,6 +53,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:product_category_id, :name, :price)
     end
 end
