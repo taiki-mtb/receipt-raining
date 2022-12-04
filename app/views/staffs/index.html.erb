@@ -8,12 +8,14 @@
       <div class="col-4 offset-8 d-flex justify-content-end">
         <%= link_to icon_with_text("plus-circle", "登録"),
                     new_staff_path,
-                    class: "btn btn-outline-primary"
+                    class: "btn btn-outline-primary",
+                    data: { turbo_frame: "new_staff" }
         %>
       </div>
     </div>
-
-    <%= render @staffs %>
-
+    <%= turbo_frame_tag "new_staff" %>
+    <div id="staffs">
+      <%= render @staffs %>
+    </div>
   </div>
 </div>

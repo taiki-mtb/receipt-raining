@@ -24,7 +24,7 @@ class StaffsController < ApplicationController
     @staff = Staff.new(staff_params)
 
     if @staff.save
-      redirect_to @staff, notice: "Staff was successfully created."
+      flash.now.notice = "Staff was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class StaffsController < ApplicationController
   # PATCH/PUT /staffs/1
   def update
     if @staff.update(staff_params)
-      redirect_to @staff, notice: "Staff was successfully updated."
+      flash.now.notice = "Staff was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ class StaffsController < ApplicationController
   # DELETE /staffs/1
   def destroy
     @staff.destroy
-    redirect_to staffs_url, notice: "Staff was successfully destroyed."
+    flash.now.notice = "Staff was successfully destroyed."
   end
 
   private
